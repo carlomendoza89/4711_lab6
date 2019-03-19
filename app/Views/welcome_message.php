@@ -74,19 +74,44 @@
 
 			<h1>Welcome to Lab 6</h1>
 
-			<div class="logo">
-                <img src="boba.gif" title="boba"/>
-			</div>
-
-			<p>
-                [Insert text here]
-            </p>
-
-			<div class="footer">
-				Page rendered in {elapsed_time} seconds. Environment: <?= ENVIRONMENT ?>
-			</div>
+<!--			<div class="logo">-->
+<!--                <img src="boba.gif" title="boba"/>-->
+<!--			</div>-->
 
 		</div>
+
+        <div id = "data">
+            <li><a href="dwarfs">Dwarfs</a></li>
+            <ol>
+                <?php
+                $db = \Config\Database::connect();
+                // validation starts here
+                $validation =  \Config\Services::validation();
+                $query = $db->query('SELECT * FROM dwarfs');
+                $results = $query->getResult();
+                foreach ($results as $row)
+                {
+                    echo '<li><a href="dwarfs/'.$row->id.'">Dwarf '.$row->id.'</a></li>';
+                    echo $row->name, ', ', $row->role;
+                }
+                ?>
+            </ol>
+            <li><a href="dwarfs">Flags</a></li>
+            <ol>
+                <?php
+                $db = \Config\Database::connect();
+                // validation starts here
+                $validation =  \Config\Services::validation();
+                $query = $db->query('SELECT * FROM flags');
+                $results = $query->getResult();
+                foreach ($results as $row)
+                {
+                    echo '<li><a href="flags/'.$row->id.'">Flag '.$row->id.'</a></li>';
+                    echo $row->meaning;
+                }
+                ?>
+            </ol>
+        </div>
 
 	</body>
 </html>
