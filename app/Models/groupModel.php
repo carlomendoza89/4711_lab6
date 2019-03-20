@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Carlo
- * Date: 3/19/2019
- * Time: 11:05 AM
- */
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class GroupModel extends Model
+{
+    protected $table = "groups";
+    protected $primaryKey = "id";
+}

@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Carlo
- * Date: 3/19/2019
- * Time: 11:06 AM
- */
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class TaskModel extends Model
+{
+    protected $table = "tasks";
+    protected $primaryKey = "id";
+}
