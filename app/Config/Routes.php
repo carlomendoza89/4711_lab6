@@ -64,6 +64,9 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+$routes->resource('Chores',['websafe'=>1]);
+$routes->add('chores/assign/(:num)', 'Chores::assign/$1');
+
 /**
  * --------------------------------------------------------------------
  * Route Definitions
